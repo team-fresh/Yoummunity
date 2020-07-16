@@ -7,13 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b2c1345-a26f-4946-9701-851702b21445" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/ChromeClient.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/GlobalClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="R3CM908J0CF" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -25,6 +38,14 @@
         <projects_view />
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,7 +60,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -49,7 +71,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -112,20 +134,52 @@
       <option name="presentableId" value="Default" />
       <updated>1594890829020</updated>
     </task>
+    <task id="LOCAL-00001" summary=":sparkles: init project">
+      <created>1594899969666</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594899969666</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=":sparkles: init project" />
+    <option name="LAST_COMMIT_MESSAGE" value=":sparkles: init project" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="1238" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594905125585">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1238" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1594905125585" />
+    <state x="970" y="314" key="CommitChangelistDialog2" timestamp="1594919480937">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="970" y="314" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1594919480937" />
     <state x="1096" y="436" key="MultipleFileMergeDialog" timestamp="1594899850596">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1096" y="436" key="MultipleFileMergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1594899850596" />
-    <state x="886" y="362" key="SettingsEditor" timestamp="1594899795400">
+    <state x="886" y="362" key="SettingsEditor" timestamp="1594905011759">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="886" y="362" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1594899795400" />
-    <state x="1093" y="511" key="git4idea.merge.GitPullDialog" timestamp="1594899875847">
+    <state x="886" y="362" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1594905011759" />
+    <state x="977" y="453" key="Vcs.Push.Dialog.v2" timestamp="1594899982201">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1093" y="511" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1594899875847" />
+    <state x="977" y="453" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1594899982201" />
+    <state x="1093" y="511" key="git4idea.merge.GitPullDialog" timestamp="1594919380798">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1093" y="511" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1594919380798" />
+    <state x="1595" y="345" key="refactoring.ChangeSignatureDialog" timestamp="1594917099947">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1595" y="345" key="refactoring.ChangeSignatureDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1594917099947" />
+    <state x="1516" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1594917699610">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1516" y="320" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1594917699610" />
   </component>
 </project>
