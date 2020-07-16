@@ -1,6 +1,10 @@
 # Yoummunity
 Youtube Community
 
+## Style Guides
+### Kotlin Code Style
+https://developer.android.com/kotlin/style-guide
+
 ### Commit Message Guide
 커밋할 때 커밋 메세지 맨 앞에 아래 이모지 중 하나 써서 커밋하기
 
