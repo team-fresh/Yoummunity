@@ -7,7 +7,7 @@ Youtube Community
 
 ### XML Naming Style
 ##### Naming 규칙
-`(WHAT)* WHERE (DESCRIPTION)* (SIZE)*`
+`(WHAT_)*WHERE_(DESCRIPTION_)*(SIZE_)*`
 
 * `WHAT` 자원 종류; e.g., activity
 * `WHERE` 자원 생성/사용되는 위치; 여러 화면에서 사용되는 경우 all; e.g., main
