@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Yoummunity</string>
+    <string name="status_progress">In Progress</string>
+    <string name="status_finished">Finished</string>
+    <string name="url_youtube">https://www.youtube.com/</string>
+    <string name="request_comment">https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyCEk4fukdGonbEO5Xwl98vY4M0W_av37w8&amp;part=snippet&amp;order=relevance&amp;videoId=</string>
 </resources>

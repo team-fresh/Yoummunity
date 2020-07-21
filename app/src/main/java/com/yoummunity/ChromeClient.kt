@@ -3,11 +3,13 @@ package com.yoummunity
 import android.R.color.black
 import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.JsResult
+import android.webkit.PermissionRequest
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.widget.FrameLayout
@@ -44,6 +46,12 @@ class ChromeClient(var activity: Activity) : WebChromeClient() {
         override fun onTouchEvent(event: MotionEvent?): Boolean {
             return true
             // return super.onTouchEvent(event)
+        }
+    }
+
+    override fun onPermissionRequest(request: PermissionRequest?) {     //
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            request?.grant(request.resources)
         }
     }
 

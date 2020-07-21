@@ -4,9 +4,13 @@ import android.app.Application
 import android.webkit.WebView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class GlobalClass(
-    var webView: WebView,
-    val urlYouTube: String = "https://www.youtube.com/"
-) : Application() {
+/*
+ * 전역변수 사용하기 위한 클래스
+ */
 
+class GlobalClass {
+    companion object {
+        var webView: CustomView? = null
+        var videoId: String? = null
+    }
 }
