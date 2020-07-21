@@ -13,6 +13,7 @@ import com.yoummunity.GlobalClass.Companion.webView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private val backPressHandler = BackPressHandler(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -47,17 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        // TODO: 두 번 누를 때 앱 종료 구현하기
+        backPressHandler.onBackPressed()
         println("[ID] ${videoId}")
-
-        if (webView!!.originalUrl.equals(getString(R.string.url_youtube))) {
-            // TODO: originalUrl에서 null 발생 가능 -> onPageFinished 메소드 override해서 해결하기
-            super.onBackPressed()
-            // Toast.makeText(this, globalClass.mWebView.originalUrl, Toast.LENGTH_SHORT).show()
-        } else if (webView!!.canGoBack()) {
-            webView!!.goBack()
-        } else {
-            super.onBackPressed()
-        }
     }
 }
