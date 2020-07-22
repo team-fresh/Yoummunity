@@ -1,15 +1,9 @@
 package com.yoummunity
 
 import android.app.Activity
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import org.json.JSONException
-import org.json.JSONObject
-import org.jsoup.Jsoup
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CommentViewModel(var activity: Activity, var url: String?) {
     fun getComment() {
@@ -24,73 +18,32 @@ class CommentViewModel(var activity: Activity, var url: String?) {
         when (videoId) {
             GlobalClass.videoId, null -> return
         }
-
-        var request = "${activity.getString(R.string.request_comment)}$videoId"
         GlobalClass.videoId = videoId
         println(videoId)
 
-        GlobalScope.async {
-            Jsoup.connect(url).get()
-            var isPageLeft = true
-            var nextPageToken: String? = null
-            val queue = Volley.newRequestQueue(activity)
+        var pageToken: String? = null
 
-            val initialRequest = StringRequest(
-                Request.Method.GET, request,
-                Response.Listener<String> { response ->
-                    val jsonObject = JSONObject(response)
-                    try {
-                        nextPageToken = jsonObject.getString("nextPageToken")
-                    } catch (e: JSONException) {
-                        // there is no nextPageToken
-                        isPageLeft = false
+        val response =
+            RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
+                .enqueue(object : Callback<Data> {
+                    override fun onFailure(call: Call<Data>, t: Throwable) {
                     }
 
-                    val items = jsonObject.getJSONArray("items")
-                    for (i in 0 until items.length()) {
-                        val snippet = items.getJSONObject(i).getJSONObject("snippet")
-                            .getJSONObject("topLevelComment").getJSONObject("snippet")
-                        val textOriginal = snippet.getString("textOriginal")
-                        val authorDisplayName = snippet.getString("authorDisplayName")
-                        println("$textOriginal ### $authorDisplayName")
+                    override fun onResponse(call: Call<Data>, response: Response<Data>) {
+                        val data = response.body()
+                        val pageToken = data?.nextPageToken
+                        println("[pageToken] $pageToken")
+
+                        println("size: ${data!!.items.size}")
+                        for (item in data!!.items) {
+                            val snippet = item.snippet.topLevelComment.snippet
+                            val comment = snippet.textOriginal
+                            val author = snippet.authorDisplayName
+
+                            println("$comment ### $author")
+                        }
                     }
-                },
-                Response.ErrorListener {
-                    println("error")
                 })
-            queue.add(initialRequest)
-
-            while (isPageLeft) {
-                // TODO: 무한루프 해결
-                request =
-                    "${activity.getString(R.string.request_comment)}$videoId&pageToken=$nextPageToken"
-                var stringRequest = StringRequest(
-                    Request.Method.GET, request,
-                    Response.Listener<String> { response ->
-                        val jsonObject = JSONObject(response)
-                        try {
-                            println("try")
-                            nextPageToken = jsonObject.getString("nextPageToken")
-                        } catch (e: JSONException) {
-                            // there is no nextPageToken
-                            println("catch")
-                            isPageLeft = false
-                        }
-
-                        val items = jsonObject.getJSONArray("items")
-                        for (i in 0 until items.length()) {
-                            val snippet = items.getJSONObject(i).getJSONObject("snippet")
-                                .getJSONObject("topLevelComment").getJSONObject("snippet")
-                            val textOriginal = snippet.getString("textOriginal")
-                            val authorDisplayName = snippet.getString("authorDisplayName")
-                            println("$textOriginal ### $authorDisplayName")
-                        }
-                    },
-                    Response.ErrorListener {
-                        println("error")
-                    })
-                queue.add(stringRequest)
-            }
-        }
+//        TODO: 모든 댓글 받아오기
     }
 }
