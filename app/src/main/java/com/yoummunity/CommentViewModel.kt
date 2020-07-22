@@ -32,8 +32,10 @@ class CommentViewModel(var activity: Activity, var url: String?) {
                 val pageToken = data?.nextPageToken
                 println("[pageToken] $pageToken")
 
-                total = total + data!!.items.size
-                // TODO: 댓글 총 개수보다 적게 불러오는 오류 해결
+                total += data!!.items.size
+                /**
+                 * 댓글 총 개수보다 적게 불러오는 오류 -> 실제 display되는 댓글 수와는 일치
+                 */
                 println("size: ${data!!.items.size}")
                 for (item in data!!.items) {
                     val snippet = item.snippet.topLevelComment.snippet
