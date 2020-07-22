@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
-    android:layout_height="500dp"
+    android:layout_height="400dp"
     android:background="@color/colorPrimary">
 
     <ScrollView
@@ -12,7 +12,7 @@
             android:id="@+id/textview_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
+            android:layout_margin="12dp"
             android:gravity="left"
             android:text="test text"
             android:textColor="#000"

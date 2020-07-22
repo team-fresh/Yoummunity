@@ -14,6 +14,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import com.yoummunity.GlobalClass.Companion.authors
 import com.yoummunity.GlobalClass.Companion.videoId
 import com.yoummunity.GlobalClass.Companion.webView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -76,14 +77,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (id) {
             R.id.button_default -> {
                 anim()
-                Toast.makeText(this, "Button Default", Toast.LENGTH_SHORT).show()
             }
             R.id.button_1 -> {
                 anim()
-                Toast.makeText(this, "Button 1", Toast.LENGTH_SHORT).show()
 
                 if (webView?.url?.equals(getString(R.string.url_youtube))!!) {
                     // no video selected
+                    return
+                }
+                if (authors.isEmpty()) {
+                    // video has no comment
+                    Toast.makeText(this, getString(R.string.guide_no_comment), Toast.LENGTH_SHORT)
+                        .show()
                     return
                 }
 
@@ -93,7 +98,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.button_2 -> {
                 anim()
-                Toast.makeText(this, "Button 2", Toast.LENGTH_SHORT).show()
+                // TODO: profile 메뉴 버튼 클릭 이벤트
             }
         }
     }

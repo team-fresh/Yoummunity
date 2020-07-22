@@ -2,7 +2,10 @@ package com.yoummunity
 
 import android.app.Activity
 import android.os.Bundle
+import android.text.Html
 import android.view.Gravity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.HtmlCompat
 import kotlinx.android.synthetic.main.activity_comments.*
 
 class CommentsActivity : Activity() {
@@ -10,6 +13,12 @@ class CommentsActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
+
+        window.attributes.gravity =
+            Gravity.BOTTOM + Gravity.RIGHT  // set position of dialog on window
+        window.attributes.x = 0
+        window.attributes.y = 30
+        window.setDimAmount(0.3f)                   // set background dim of dialog
     }
 
     override fun onResume() {
@@ -21,8 +30,9 @@ class CommentsActivity : Activity() {
             return
         }
         for (i in GlobalClass.comments.indices) {
-            text += GlobalClass.authors[i] + "\n" + GlobalClass.comments[i] + "\n\n"
+            text += "<b>" + GlobalClass.authors[i] + "</b><br>" + GlobalClass.comments[i] + "<br><br>"
+            // text: String in HTML
         }
-        textView.text = text
+        textView.text = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
