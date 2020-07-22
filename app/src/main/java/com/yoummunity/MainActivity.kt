@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         closingButton = AnimationUtils.loadAnimation(applicationContext, R.anim.button_close)
 
         webView!!.webChromeClient = ChromeClient(this)
-        webView!!.webViewClient = CustomViewClient(this)            // prevent a new window from opening
+        webView!!.webViewClient =
+            CustomViewClient(this)            // prevent a new window from opening
 
         var mWebSettings = webView!!.settings
         mWebSettings.javaScriptEnabled = true
@@ -80,8 +81,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button_1 -> {
                 anim()
                 Toast.makeText(this, "Button 1", Toast.LENGTH_SHORT).show()
+
+                if (webView?.url?.equals(getString(R.string.url_youtube))!!) {
+                    // no video selected
+                    return
+                }
+
                 val intent = Intent(this, CommentsActivity::class.java)
-                intent.putExtra("data", "test")
+//                intent.putExtra("data", "test")
                 startActivity(intent)
             }
             R.id.button_2 -> {

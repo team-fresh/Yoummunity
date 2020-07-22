@@ -2,8 +2,9 @@
     <string name="app_name">Yoummunity</string>
     <string name="status_progress">In Progress</string>
     <string name="status_finished">Finished</string>
-    <string name="url_youtube">https://www.youtube.com/</string>
+    <string name="url_youtube">https://m.youtube.com/</string>
 <!--    <string name="api_youtube">https://www.googleapis.com/youtube/</string>-->
 <!--    <string name="request_api">https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyCEk4fukdGonbEO5Xwl98vY4M0W_av37w8&amp;part=snippet&amp;order=relevance&amp;videoId=</string>-->
     <string name="guide_back">\'뒤로\' 버튼을 한 번 더 누르시면 종료됩니다.</string>
+    <string name="guide_no_comment">작성된 댓글이 없습니다.</string>
 </resources>

@@ -6,6 +6,7 @@ import android.view.Gravity
 import kotlinx.android.synthetic.main.activity_comments.*
 
 class CommentsActivity : Activity() {
+    var text: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
@@ -14,9 +15,9 @@ class CommentsActivity : Activity() {
     override fun onResume() {
         super.onResume()
         var textView = textview_comment
-        var text: String = ""
 //        var data = intent.getStringExtra("data")
         if (GlobalClass.authors.isEmpty() or GlobalClass.comments.isEmpty()) {
+            textView.text = getString(R.string.guide_no_comment)
             return
         }
         for (i in GlobalClass.comments.indices) {
