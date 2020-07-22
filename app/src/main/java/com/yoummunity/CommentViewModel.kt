@@ -1,9 +1,8 @@
 package com.yoummunity
 
 import android.app.Activity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CommentViewModel(var activity: Activity, var url: String?) {
     fun getComment() {
@@ -22,28 +21,37 @@ class CommentViewModel(var activity: Activity, var url: String?) {
         println(videoId)
 
         var pageToken: String? = null
+        var total = 0
 
-        val response =
-            RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
-                .enqueue(object : Callback<Data> {
-                    override fun onFailure(call: Call<Data>, t: Throwable) {
-                    }
+        GlobalScope.launch {
+            var response =
+                RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
+                    .execute()
+            while (response.isSuccessful) {
+                val data = response.body()
+                val pageToken = data?.nextPageToken
+                println("[pageToken] $pageToken")
 
-                    override fun onResponse(call: Call<Data>, response: Response<Data>) {
-                        val data = response.body()
-                        val pageToken = data?.nextPageToken
-                        println("[pageToken] $pageToken")
+                total = total + data!!.items.size
+                // TODO: 댓글 총 개수보다 적게 불러오는 오류 해결
+                println("size: ${data!!.items.size}")
+                for (item in data!!.items) {
+                    val snippet = item.snippet.topLevelComment.snippet
+                    val comment = snippet.textOriginal
+                    val author = snippet.authorDisplayName
 
-                        println("size: ${data!!.items.size}")
-                        for (item in data!!.items) {
-                            val snippet = item.snippet.topLevelComment.snippet
-                            val comment = snippet.textOriginal
-                            val author = snippet.authorDisplayName
+                    println("$comment ### $author")
+                }
 
-                            println("$comment ### $author")
-                        }
-                    }
-                })
-//        TODO: 모든 댓글 받아오기
+                if (pageToken == null) {
+                    println("total: $total")
+                    break
+                }
+
+                response =
+                    RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
+                        .execute()
+            }
+        }
     }
 }
