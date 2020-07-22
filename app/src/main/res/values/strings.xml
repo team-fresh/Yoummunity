@@ -4,6 +4,6 @@
     <string name="status_finished">Finished</string>
     <string name="url_youtube">https://www.youtube.com/</string>
     <string name="request_comment">https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyCEk4fukdGonbEO5Xwl98vY4M0W_av37w8&amp;part=snippet&amp;order=relevance&amp;videoId=</string>
-
     <string name="guide_back">\'뒤로\' 버튼을 한 번 더 누르시면 종료됩니다.</string>
+    <string name="image_description">샘플 이미지.</string>
 </resources>
