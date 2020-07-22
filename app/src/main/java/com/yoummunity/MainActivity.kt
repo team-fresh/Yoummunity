@@ -1,9 +1,11 @@
 package com.yoummunity
 
+import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         closingButton = AnimationUtils.loadAnimation(applicationContext, R.anim.button_close)
 
         webView!!.webChromeClient = ChromeClient(this)
-        webView!!.webViewClient = WebViewClient()               // prevent a new window from opening
+        webView!!.webViewClient = CustomViewClient(this)            // prevent a new window from opening
 
         var mWebSettings = webView!!.settings
         mWebSettings.javaScriptEnabled = true
