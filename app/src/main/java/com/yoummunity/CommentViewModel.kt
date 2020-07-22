@@ -24,6 +24,9 @@ class CommentViewModel(var activity: Activity, var url: String?) {
         var total = 0
 
         GlobalScope.launch {
+            GlobalClass.authors = mutableListOf<String>()
+            GlobalClass.comments = mutableListOf<String>()
+
             var response =
                 RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
                     .execute()
@@ -42,10 +45,14 @@ class CommentViewModel(var activity: Activity, var url: String?) {
                     val comment = snippet.textOriginal
                     val author = snippet.authorDisplayName
 
+                    GlobalClass.authors.add(author)
+                    GlobalClass.comments.add(comment)
+
                     println("$comment ### $author")
                 }
 
                 if (pageToken == null) {
+                    println(GlobalClass.authors)
                     println("total: $total")
                     break
                 }

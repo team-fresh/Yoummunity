@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
 
     <com.yoummunity.CustomView
         android:id="@+id/webview_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="true"
-        android:focusableInTouchMode="true"/>
+        android:focusableInTouchMode="true" />
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="175sp"
+        android:layout_marginRight="15sp"
+        android:src="@drawable/ic_comment_48dp"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="115sp"
+        android:layout_marginRight="15sp"
+        android:src="@drawable/ic_profile_48dp"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="50sp"
+        android:layout_marginRight="15sp"
+        android:src="@drawable/ic_menu_48dp"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/colorAccent"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
+
+</FrameLayout>

@@ -1,8 +1,12 @@
 package com.yoummunity
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -12,8 +16,14 @@ import com.yoummunity.GlobalClass.Companion.videoId
 import com.yoummunity.GlobalClass.Companion.webView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val backPressHandler = BackPressHandler(this)
+    private var rotatingClockwiseButton: Animation? = null
+    private var rotatingCounterClockwiseButton: Animation? = null
+    private var openingButton: Animation? = null
+    private var closingButton: Animation? = null
+    private var isButtonOpened = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +31,21 @@ class MainActivity : AppCompatActivity() {
 
         val actionBar = supportActionBar
         actionBar?.hide()
+
+        val buttonDefault = button_default
+        val button1 = button_1
+        val button2 = button_2
+
+        buttonDefault.setOnClickListener(this)
+        button1.setOnClickListener(this)
+        button2.setOnClickListener(this)
+
+        rotatingClockwiseButton =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.button_rotate_clockwise)
+        rotatingCounterClockwiseButton =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.button_rotate_counterclockwise)
+        openingButton = AnimationUtils.loadAnimation(applicationContext, R.anim.button_open)
+        closingButton = AnimationUtils.loadAnimation(applicationContext, R.anim.button_close)
 
         webView!!.webChromeClient = ChromeClient(this)
         webView!!.webViewClient = WebViewClient()               // prevent a new window from opening
@@ -40,6 +65,47 @@ class MainActivity : AppCompatActivity() {
         mWebSettings.domStorageEnabled = true                   // whether to enable DOM storage API
 
         webView!!.loadUrl(getString(R.string.url_youtube))
+    }
+
+    override fun onClick(view: View?) {
+        // floating button click event
+        var id = view?.id
+        when (id) {
+            R.id.button_default -> {
+                anim()
+                Toast.makeText(this, "Button Default", Toast.LENGTH_SHORT).show()
+            }
+            R.id.button_1 -> {
+                anim()
+                Toast.makeText(this, "Button 1", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, CommentsActivity::class.java)
+                intent.putExtra("data", "test")
+                startActivity(intent)
+            }
+            R.id.button_2 -> {
+                anim()
+                Toast.makeText(this, "Button 2", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun anim() {
+        // floating button animation
+        if (isButtonOpened) {
+            button_default.startAnimation(rotatingCounterClockwiseButton)
+            button_1.startAnimation(closingButton)
+            button_2.startAnimation(closingButton)
+            button_1.isClickable = false
+            button_2.isClickable = false
+            isButtonOpened = false
+        } else {
+            button_default.startAnimation(rotatingClockwiseButton)
+            button_1.startAnimation(openingButton)
+            button_2.startAnimation(openingButton)
+            button_1.isClickable = true
+            button_2.isClickable = true
+            isButtonOpened = true
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

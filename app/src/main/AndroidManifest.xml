@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CommentsActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
     </application>
     
     <uses-permission android:name="android.permission.INTERNET"/>

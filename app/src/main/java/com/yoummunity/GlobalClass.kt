@@ -12,5 +12,7 @@ class GlobalClass {
     companion object {
         var webView: CustomView? = null
         var videoId: String? = null
+        var authors = mutableListOf<String>()
+        var comments = mutableListOf<String>()
     }
 }
