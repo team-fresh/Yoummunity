@@ -39,7 +39,9 @@ class CommentsActivity : Activity() {
 
     override fun onResume() {
         super.onResume()
-        for (i in GlobalClass.comments.indices) {
+        for (i in GlobalClass.authors.indices) {
+            if (GlobalClass.videoIds[i] != GlobalClass.videoId) continue
+
             adapter?.addItem(
                 BitmapDrawable(this.resources, GlobalClass.authorProfileImages[i]),
                 GlobalClass.authors[i],

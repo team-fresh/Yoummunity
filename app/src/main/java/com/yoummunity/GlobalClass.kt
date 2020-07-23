@@ -13,9 +13,13 @@ import java.net.URL
 class GlobalClass {
     companion object {
         var webView: CustomView? = null
+
         var videoId: String? = null
+        var isEmpty: Boolean = true
+
         var authorProfileImages = mutableListOf<Bitmap>()
         var authors = mutableListOf<String>()
         var comments = mutableListOf<String>()
+        var videoIds = mutableListOf<String>()
     }
 }

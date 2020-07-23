@@ -85,15 +85,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     // no video selected
                     return
                 }
-                if (authors.isEmpty()) {
+                if (GlobalClass.isEmpty) {
                     // video has no comment
                     Toast.makeText(this, getString(R.string.guide_no_comment), Toast.LENGTH_SHORT)
                         .show()
                     return
                 }
+                if (GlobalClass.authors.isEmpty()) {
+                    // loading comments
+                    return
+                }
 
                 val intent = Intent(this, CommentsActivity::class.java)
-//                intent.putExtra("data", "test")
+                // intent.putExtra("data", "test")
                 startActivity(intent)
             }
             R.id.button_2 -> {

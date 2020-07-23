@@ -22,15 +22,14 @@ class CommentViewModel(var activity: Activity, var url: String?) {
             GlobalClass.videoId, null -> return
         }
         GlobalClass.videoId = videoId
-        println(videoId)
 
         var pageToken: String? = null
-        var total = 0
 
         GlobalScope.launch {
             GlobalClass.authorProfileImages = mutableListOf<Bitmap>()
             GlobalClass.authors = mutableListOf<String>()
             GlobalClass.comments = mutableListOf<String>()
+            GlobalClass.videoIds = mutableListOf<String>()
 
             var response =
                 RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
@@ -39,16 +38,14 @@ class CommentViewModel(var activity: Activity, var url: String?) {
             while (response.isSuccessful && videoId == GlobalClass.videoId) {
                 val data = response.body()
                 val pageToken = data?.nextPageToken
-                println("[pageToken] $pageToken")
-
-                total += data!!.items.size
                 /**
                  * 댓글 총 개수보다 적게 불러오는 오류 -> 실제 display되는 댓글 수와는 일치
                  */
-                println("size: ${data.items.size}")
-                for (item in data.items) {
+                GlobalClass.isEmpty = data!!.items.isNullOrEmpty()
+
+                for (i in data.items.indices) {
+                    val item = data.items[i]
                     if (videoId != GlobalClass.videoId) break
-                    Log.d("VIEW_MODEL", "${GlobalClass.videoId} ### $videoId")
 
                     val snippet = item.snippet.topLevelComment.snippet
                     val authorProfileImage =
@@ -59,13 +56,9 @@ class CommentViewModel(var activity: Activity, var url: String?) {
                     GlobalClass.authorProfileImages.add(authorProfileImage)
                     GlobalClass.authors.add(author)
                     GlobalClass.comments.add(comment)
+                    GlobalClass.videoIds.add(videoId)
                 }
-
-                if (pageToken == null) {
-                    println(GlobalClass.authors)
-                    println("total: $total")
-                    break
-                }
+                if (pageToken == null) break
 
                 response =
                     RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
