@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
-    android:layout_height="400dp"
+    android:layout_width="270dp"
+    android:layout_height="370dp"
+    android:layout_margin="15dp"
     android:background="@color/colorPrimary">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-        <TextView
-            android:id="@+id/textview_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:gravity="left"
-            android:text="test text"
-            android:textColor="#000"
-            android:textSize="15sp" />
-    </ScrollView>
-
+    <ListView
+        android:id="@+id/list_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:divider="@color/colorPrimaryDark"
+        android:dividerHeight="1px" />
 </LinearLayout>
