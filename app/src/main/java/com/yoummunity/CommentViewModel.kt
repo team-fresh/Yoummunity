@@ -1,8 +1,11 @@
 package com.yoummunity
 
 import android.app.Activity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.net.URL
 
 class CommentViewModel(var activity: Activity, var url: String?) {
     fun getComment() {
@@ -24,6 +27,7 @@ class CommentViewModel(var activity: Activity, var url: String?) {
         var total = 0
 
         GlobalScope.launch {
+            GlobalClass.authorProfileImages = mutableListOf<Bitmap>()
             GlobalClass.authors = mutableListOf<String>()
             GlobalClass.comments = mutableListOf<String>()
 
@@ -39,16 +43,17 @@ class CommentViewModel(var activity: Activity, var url: String?) {
                 /**
                  * 댓글 총 개수보다 적게 불러오는 오류 -> 실제 display되는 댓글 수와는 일치
                  */
-                println("size: ${data!!.items.size}")
-                for (item in data!!.items) {
+                println("size: ${data.items.size}")
+                for (item in data.items) {
                     val snippet = item.snippet.topLevelComment.snippet
-                    val comment = snippet.textOriginal
+                    val authorProfileImage =
+                        BitmapFactory.decodeStream(URL(snippet.authorProfileImageUrl).openStream())
                     val author = snippet.authorDisplayName
+                    val comment = snippet.textOriginal
 
+                    GlobalClass.authorProfileImages.add(authorProfileImage)
                     GlobalClass.authors.add(author)
                     GlobalClass.comments.add(comment)
-
-                    println("$comment ### $author")
                 }
 
                 if (pageToken == null) {

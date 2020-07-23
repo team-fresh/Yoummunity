@@ -2,6 +2,7 @@ package com.yoummunity
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.text.Html
 import android.view.Gravity
@@ -30,7 +31,7 @@ class CommentsActivity : Activity() {
         adapter = CommentListAdapter()
 
         window.attributes.gravity =
-            Gravity.BOTTOM + Gravity.RIGHT  // set position of dialog on window
+            Gravity.BOTTOM + Gravity.RIGHT          // set position of dialog on window
         window.attributes.x = 0
         window.attributes.y = 30
         window.setDimAmount(0.3f)                   // set background dim of dialog
@@ -38,22 +39,15 @@ class CommentsActivity : Activity() {
 
     override fun onResume() {
         super.onResume()
-//        var textView = textview_comment
-//        var data = intent.getStringExtra("data")
         for (i in GlobalClass.comments.indices) {
-//            text =
-//                "<b>" + GlobalClass.authors[i] + "</b><br>" + GlobalClass.comments[i]
-            // text: String in HTML
-//            textList.add(HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY))
             adapter?.addItem(
-                ContextCompat.getDrawable(this, R.drawable.ic_profile_48dp)!!,
+                BitmapDrawable(this.resources, GlobalClass.authorProfileImages[i]),
                 GlobalClass.authors[i],
                 GlobalClass.comments[i]
             )
         }
 
-        adapter?.notifyDataSetChanged() // notify arrayAdapter that data has changed
+        adapter?.notifyDataSetChanged()             // notify arrayAdapter that data has changed
         listCommentsView?.adapter = adapter
-//        textView.text = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
