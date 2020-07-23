@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="270dp"
-    android:layout_height="370dp"
-    android:layout_margin="15dp"
-    android:background="@color/colorPrimary">
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:background="@color/colorPrimary"
+    android:padding="6dp">
 
     <ListView
         android:id="@+id/list_comments"

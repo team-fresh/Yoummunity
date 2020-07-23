@@ -17,16 +17,16 @@ import kotlinx.android.synthetic.main.list_item_comment.*
 
 class CommentsActivity : Activity() {
     private var text: String = ""
-    private var arrayList = mutableListOf<String>()
-    private var arrayAdapter: ArrayAdapter<String>? = null
-    private var listComments: ListView? = null
+    private var textList = mutableListOf<CharSequence>()
+    private var arrayAdapter: ArrayAdapter<CharSequence>? = null
+    private var listCommentsView: ListView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
 
-        listComments = list_comments
-        arrayAdapter = ArrayAdapter<String>(this, R.layout.list_item_comment, arrayList)
+        listCommentsView = list_comments
+        arrayAdapter = ArrayAdapter<CharSequence>(this, R.layout.list_item_comment, textList)
 
         window.attributes.gravity =
             Gravity.BOTTOM + Gravity.RIGHT  // set position of dialog on window
@@ -41,13 +41,13 @@ class CommentsActivity : Activity() {
 //        var data = intent.getStringExtra("data")
         for (i in GlobalClass.comments.indices) {
             text =
-                "<b>" + GlobalClass.authors[i] + "</b><br>" + GlobalClass.comments[i] + "<br><br>"
+                "<b>" + GlobalClass.authors[i] + "</b><br>" + GlobalClass.comments[i]
             // text: String in HTML
-            arrayList.add(text)
+            textList.add(HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY))
         }
 
         arrayAdapter?.notifyDataSetChanged() // notify arrayAdapter that data has changed
-        listComments?.adapter = arrayAdapter
+        listCommentsView?.adapter = arrayAdapter
 //        textView.text = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }

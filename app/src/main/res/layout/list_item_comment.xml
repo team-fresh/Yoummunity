@@ -4,6 +4,6 @@
     android:id="@+id/item_comment"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
     android:gravity="left"
+    android:padding="12dp"
     android:textColor="@android:color/black" />
