@@ -11,6 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b2c1345-a26f-4946-9701-851702b21445" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/EmojiActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emoji.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -19,11 +21,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/GlobalClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/GlobalClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595528041179</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary=":bug: fixed a bug causing list view to show comments of the previous video">
+      <created>1595530504599</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1595530504599</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -253,7 +261,8 @@
     <MESSAGE value=":gift_heart: activity_comments.xml: scroll view -&gt; list view" />
     <MESSAGE value=":art: prepared a place for the author's profile image" />
     <MESSAGE value=":bug: fixed a bug where the coroutine did not end even if the video id changed" />
-    <option name="LAST_COMMIT_MESSAGE" value=":bug: fixed a bug where the coroutine did not end even if the video id changed" />
+    <MESSAGE value=":bug: fixed a bug causing list view to show comments of the previous video" />
+    <option name="LAST_COMMIT_MESSAGE" value=":bug: fixed a bug causing list view to show comments of the previous video" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1238" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594905125585">
@@ -280,11 +289,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="220" y="459" key="AndroidCreateResourceDirectoryDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1595409776773" />
-    <state x="389" y="153" key="CommitChangelistDialog2" timestamp="1595528040490">
+    <state x="389" y="153" key="CommitChangelistDialog2" timestamp="1595530503837">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="331" y="215" key="CommitChangelistDialog2/0.0.1707.1027@0.0.1707.1027" timestamp="1595313677304" />
-    <state x="389" y="153" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1595528040490" />
+    <state x="389" y="153" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1595530503837" />
     <state x="498" y="245" key="DiffContextDialog" timestamp="1595485333738">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -293,26 +302,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="579" y="152" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1595429545295" />
-    <state width="1233" height="452" key="GridCell.Tab.0.bottom" timestamp="1595527591986">
+    <state width="1233" height="452" key="GridCell.Tab.0.bottom" timestamp="1595531173472">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466558" />
-    <state width="1233" height="452" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591986" />
-    <state width="1233" height="452" key="GridCell.Tab.0.center" timestamp="1595527591986">
+    <state width="1233" height="452" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1595531173472" />
+    <state width="1233" height="452" key="GridCell.Tab.0.center" timestamp="1595531173472">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466558" />
-    <state width="1233" height="452" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591986" />
-    <state width="1233" height="452" key="GridCell.Tab.0.left" timestamp="1595527591985">
+    <state width="1233" height="452" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1595531173472" />
+    <state width="1233" height="452" key="GridCell.Tab.0.left" timestamp="1595531173472">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466556" />
-    <state width="1233" height="452" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591985" />
-    <state width="1233" height="452" key="GridCell.Tab.0.right" timestamp="1595527591986">
+    <state width="1233" height="452" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1595531173472" />
+    <state width="1233" height="452" key="GridCell.Tab.0.right" timestamp="1595531173472">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466558" />
-    <state width="1233" height="452" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591986" />
+    <state width="1233" height="452" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1595531173472" />
     <state x="1096" y="436" key="MultipleFileMergeDialog" timestamp="1594899850596">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -326,11 +335,11 @@
     </state>
     <state x="591" y="266" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1595314963850" />
     <state x="285" y="273" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1595386196242" />
-    <state x="977" y="453" key="Vcs.Push.Dialog.v2" timestamp="1595528047877">
+    <state x="977" y="453" key="Vcs.Push.Dialog.v2" timestamp="1595530509115">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="651" y="332" key="Vcs.Push.Dialog.v2/0.0.1707.1027@0.0.1707.1027" timestamp="1595313806973" />
-    <state x="977" y="453" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1595528047877" />
+    <state x="977" y="453" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1595530509115" />
     <state x="93" y="100" width="1065" height="1207" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595484916944">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

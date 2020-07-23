@@ -103,7 +103,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button_2 -> {
                 anim()
                 // TODO: profile 메뉴 버튼 클릭 이벤트
+                val intent = Intent(this, EmojiActivity::class.java)
+                startActivity(intent)
             }
+            // TODO: emoji activity를 위한 버튼
         }
     }
 
@@ -133,6 +136,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onBackPressed() {
         backPressHandler.onBackPressed()
-        println("[ID] ${videoId}")
     }
 }
