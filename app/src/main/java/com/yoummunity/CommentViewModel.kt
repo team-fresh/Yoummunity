@@ -3,7 +3,9 @@ package com.yoummunity
 import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.util.Log
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
 import java.net.URL
@@ -31,6 +33,11 @@ class CommentViewModel(var activity: Activity, var url: String?) {
             GlobalClass.comments = mutableListOf<String>()
             GlobalClass.videoIds = mutableListOf<String>()
 
+            val defaultProfileIcon = (ContextCompat.getDrawable(
+                activity,
+                R.drawable.ic_profile_default_32px
+            ) as BitmapDrawable).bitmap
+
             var response =
                 RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
                     .execute()
@@ -48,8 +55,21 @@ class CommentViewModel(var activity: Activity, var url: String?) {
                     if (videoId != GlobalClass.videoId) break
 
                     val snippet = item.snippet.topLevelComment.snippet
-                    val authorProfileImage =
-                        BitmapFactory.decodeStream(URL(snippet.authorProfileImageUrl).openStream())
+                    val url = snippet.authorChannelUrl
+                    var authorProfileImage = defaultProfileIcon
+                    var isDefault = false
+
+                    val strings = url.split("ytimg.com")
+
+                    if (strings.size > 1)
+                        if (strings[1] == "/yts/img/avatar_32-vflI3ugzv.png") {
+                            isDefault = true
+                        }
+
+                    if (!isDefault)
+                        authorProfileImage =
+                            BitmapFactory.decodeStream(URL(snippet.authorProfileImageUrl).openStream())
+
                     val author = snippet.authorDisplayName
                     val comment = snippet.textOriginal
 
