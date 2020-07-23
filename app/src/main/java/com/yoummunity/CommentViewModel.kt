@@ -3,8 +3,9 @@ package com.yoummunity
 import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.*
 import java.net.URL
 
 class CommentViewModel(var activity: Activity, var url: String?) {
@@ -34,7 +35,8 @@ class CommentViewModel(var activity: Activity, var url: String?) {
             var response =
                 RetrofitClient.getService().query(videoId = videoId!!, pageToken = pageToken)
                     .execute()
-            while (response.isSuccessful) {
+
+            while (response.isSuccessful && videoId == GlobalClass.videoId) {
                 val data = response.body()
                 val pageToken = data?.nextPageToken
                 println("[pageToken] $pageToken")
@@ -45,6 +47,9 @@ class CommentViewModel(var activity: Activity, var url: String?) {
                  */
                 println("size: ${data.items.size}")
                 for (item in data.items) {
+                    if (videoId != GlobalClass.videoId) break
+                    Log.d("VIEW_MODEL", "${GlobalClass.videoId} ### $videoId")
+
                     val snippet = item.snippet.topLevelComment.snippet
                     val authorProfileImage =
                         BitmapFactory.decodeStream(URL(snippet.authorProfileImageUrl).openStream())

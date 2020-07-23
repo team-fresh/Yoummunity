@@ -19,11 +19,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/CommentsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/GlobalClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yoummunity/GlobalClass.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,26 +283,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="579" y="152" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1595429545295" />
-    <state width="1205" height="269" key="GridCell.Tab.0.bottom" timestamp="1595485108547">
+    <state width="1233" height="452" key="GridCell.Tab.0.bottom" timestamp="1595527591986">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466558" />
-    <state width="1205" height="269" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1595485108547" />
-    <state width="1205" height="269" key="GridCell.Tab.0.center" timestamp="1595485108547">
+    <state width="1233" height="452" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591986" />
+    <state width="1233" height="452" key="GridCell.Tab.0.center" timestamp="1595527591986">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466558" />
-    <state width="1205" height="269" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1595485108547" />
-    <state width="1205" height="269" key="GridCell.Tab.0.left" timestamp="1595485108547">
+    <state width="1233" height="452" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591986" />
+    <state width="1233" height="452" key="GridCell.Tab.0.left" timestamp="1595527591985">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466556" />
-    <state width="1205" height="269" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1595485108547" />
-    <state width="1205" height="269" key="GridCell.Tab.0.right" timestamp="1595485108547">
+    <state width="1233" height="452" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591985" />
+    <state width="1233" height="452" key="GridCell.Tab.0.right" timestamp="1595527591986">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1496" height="219" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595325466558" />
-    <state width="1205" height="269" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1595485108547" />
+    <state width="1233" height="452" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1595527591986" />
     <state x="1096" y="436" key="MultipleFileMergeDialog" timestamp="1594899850596">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
