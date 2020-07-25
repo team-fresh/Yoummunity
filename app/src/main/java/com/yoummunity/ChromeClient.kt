@@ -50,7 +50,7 @@ class ChromeClient(var activity: Activity) : WebChromeClient() {
     }
 
     override fun onPermissionRequest(request: PermissionRequest?) {     //
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             request?.grant(request.resources)
         }
     }

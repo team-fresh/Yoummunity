@@ -19,7 +19,11 @@ class BackPressHandler(var activity: Activity) {
 
         if (System.currentTimeMillis() > lastPressedTime + TIME_INTERVAL) {
             lastPressedTime = System.currentTimeMillis()
-            toast = Toast.makeText(activity, activity.getString(R.string.guide_back), Toast.LENGTH_SHORT)
+            toast = Toast.makeText(
+                activity,
+                activity.getString(R.string.guide_back),
+                Toast.LENGTH_SHORT
+            )
             toast!!.show()
         } else {
             activity.finish()
