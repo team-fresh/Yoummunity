@@ -10,6 +10,7 @@ class EmojiActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emoji)
 
+
         val EmojiList = arrayListOf(
             Emoji(R.drawable.person,"person"),
             Emoji(R.drawable.girl,"girl"),
@@ -18,9 +19,18 @@ class EmojiActivity : Activity() {
             Emoji(R.drawable.child,"child")
         )
 
-        recyclerView.layoutManager =LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = EmojiAdapter(EmojiList)
+        val TagList = arrayListOf(
+            Emoji(R.drawable.man,"person"),
+            Emoji(R.drawable.smile,"doctor"),
+            Emoji(R.drawable.baby,"doctor")
+         )
+        tag_recycler.layoutManager= LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        tag_recycler.setHasFixedSize(true)
+        tag_recycler.adapter = EmojiAdapter(TagList,false)
+
+        emoji_recycler.layoutManager =LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+        emoji_recycler.setHasFixedSize(true)
+        emoji_recycler.adapter = EmojiAdapter(EmojiList,true)
 
 
 
