@@ -15,7 +15,7 @@ class CommentViewModel(var activity: Activity, var url: String?) {
         var strings = url?.split("watch?v=")
         var videoId =
             if (strings!!.size >= 2) {
-                strings[1]
+                strings[1].split("#")[0]
             } else {
                 null
             }

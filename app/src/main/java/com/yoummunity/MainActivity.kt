@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         mWebSettings.cacheMode = WebSettings.LOAD_NO_CACHE
         mWebSettings.domStorageEnabled = true                   // whether to enable DOM storage API
 
+//        webView!!.loadUrl("https://www.google.com")
         webView!!.loadUrl(getString(R.string.url_youtube))
     }
 
