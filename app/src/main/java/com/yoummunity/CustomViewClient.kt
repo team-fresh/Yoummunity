@@ -49,7 +49,8 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
 
 
         // TODO: 답글 더보기 누를 때 아래 코드 실행되지 않는 문제 해결
-        var emoticonSrc = "https://blogimgs.pstatic.net/sticker/xhdpi/moon_and_james/original/39.png"
+        // TODO: 댓글 추가하고나서 아래 코드 실행되지 않는 문제 해결
+        var emojiUrl = "https://blogimgs.pstatic.net/sticker/xhdpi/moon_and_james/original/" // 39.png
         Handler(Looper.getMainLooper()).postDelayed(
             {
                 // 이모티콘 불러오기
@@ -58,8 +59,16 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
                             "var list = document.querySelectorAll(\"p.comment-text.user-text\");" +
                             "for(var i=0; i<list.length; i++) {" +
                             "   var origin = list.item(i);" +
+                            "   if(!origin.innerHTML.includes(\"[yt-eco/emo/\")) continue;" +
+
+                            "   var innerText = origin.innerHTML;" +
+                            "   var matched = innerText.match(/(\\[yt-eco\\/emo\\/[0-9]+\\.(gif|png)\\])/g)[0];" +
+
+                            "   var src = matched.replace(\"[yt-eco/emo/\", \""+emojiUrl+"\").replace(\"]\", \"\");" +
+                            "   origin.innerHTML = innerText.replace(matched, \"\");" +
+
                             "   origin.insertAdjacentHTML(\"afterbegin\"," + // or \"beforebegin\"
-                            "       '<img src=\"" + emoticonSrc + "\"/><br>');" +
+                            "       `<img src=\"\${src}\"/><br>`);" +
                             "}"
                 )
             }, delay
