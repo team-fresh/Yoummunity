@@ -1,14 +1,19 @@
 package com.yoummunity
 
 import android.app.Activity
+import android.graphics.Bitmap
+import android.net.http.SslError
 import android.os.Handler
 import android.os.Looper
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.os.Message
+import android.util.Log
+import android.view.KeyEvent
+import android.webkit.*
 import android.widget.Toast
 
 class CustomViewClient(var activity: Activity) : WebViewClient() {
-    override fun doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean) {
+    override fun onLoadResource(view: WebView?, url: String?) {
+        Log.d("SOEUN", "doUpdateVisitedHistory")
         var strings = url?.split("watch?v=")
         var videoId =
             if (strings!!.size >= 2) {
@@ -47,10 +52,8 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
 //                            "var comment = document.getElementsByTagName('ytm-comment-thread-renderer')[0];" +
 //                            "comment.parentNode.removeChild(comment);"
 
-
-        // TODO: 답글 더보기 누를 때 아래 코드 실행되지 않는 문제 해결
-        // TODO: 댓글 추가하고나서 아래 코드 실행되지 않는 문제 해결
-        var emojiUrl = "https://blogimgs.pstatic.net/sticker/xhdpi/moon_and_james/original/" // 39.png
+        var emojiUrl =
+            "https://blogimgs.pstatic.net/sticker/xhdpi/moon_and_james/original/" // 39.png
         Handler(Looper.getMainLooper()).postDelayed(
             {
                 // 이모티콘 불러오기
@@ -64,7 +67,7 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
                             "   var innerText = origin.innerHTML;" +
                             "   var matched = innerText.match(/(\\[yt-eco\\/emo\\/[0-9]+\\.(gif|png)\\])/g)[0];" +
 
-                            "   var src = matched.replace(\"[yt-eco/emo/\", \""+emojiUrl+"\").replace(\"]\", \"\");" +
+                            "   var src = matched.replace(\"[yt-eco/emo/\", \"" + emojiUrl + "\").replace(\"]\", \"\");" +
                             "   origin.innerHTML = innerText.replace(matched, \"\");" +
 
                             "   origin.insertAdjacentHTML(\"afterbegin\"," + // or \"beforebegin\"
@@ -73,6 +76,6 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
                 )
             }, delay
         )
-        super.doUpdateVisitedHistory(view, url, isReload)
+        super.onLoadResource(view, url)
     }
 }
