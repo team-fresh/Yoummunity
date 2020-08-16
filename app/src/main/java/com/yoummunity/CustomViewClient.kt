@@ -13,7 +13,6 @@ import android.widget.Toast
 
 class CustomViewClient(var activity: Activity) : WebViewClient() {
     override fun onLoadResource(view: WebView?, url: String?) {
-        Log.d("SOEUN", "doUpdateVisitedHistory")
         var strings = url?.split("watch?v=")
         var videoId =
             if (strings!!.size >= 2) {
@@ -22,12 +21,11 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
                 null
             }
 
-        var delay = 2000L
+        var delay = 0L //2000L
 
         when (videoId) {
             GlobalClass.videoId, null -> {
-                delay -= delay
-            }
+            }     // 같은 video 내에서 새로고침
             else -> {
                 CommentViewModel(
                     activity,
@@ -39,8 +37,17 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
                         // 댓글 보기 버튼 강제 클릭
                         view!!.loadUrl(
                             "javascript:" +
-                                    "var button = document.getElementsByTagName(\"ytm-comment-section-header-renderer\")[0];" +
-                                    "button.getElementsByTagName(\"button\")[0].click();"
+                                    "var buttonCommentSection = document.getElementsByTagName(\"ytm-comment-section-header-renderer\")[0];" +
+                                    "buttonCommentSection.getElementsByTagName(\"button\")[0].click();" +
+
+                                    "var buttonCommentBox = document.getElementsByTagName(\"ytm-comment-simplebox-renderer\")[0];" +
+                                    "buttonCommentBox.getElementsByTagName(\"button\")[0]" +
+                                    "   .addEventListener(\"click\", function() {" +
+                                    // TODO: 원격->로컬 이미지 불러오는 방식으로 변경
+                                    // TODO: 댓글창 비활성화 -> 활성화 시 버튼 사라지는 문제 해결
+                                    "       buttonCommentBox.getElementsByTagName(\"c3-material-button\")[0].insertAdjacentHTML(\"beforebegin\"," +
+                                    "           \"<button><img src=\\\"https://s.ytimg.com/yts/img/avatar_32-vflI3ugzv.png\\\"/>&nbsp;&nbsp;&nbsp;&nbsp;</button>\");" +
+                                    "   }, false);"
                         )
                     }, 1000L
                 )
