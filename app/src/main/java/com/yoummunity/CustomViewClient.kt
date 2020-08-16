@@ -55,9 +55,12 @@ class CustomViewClient(var activity: Activity) : WebViewClient() {
                 // 이모티콘 불러오기
                 view!!.loadUrl(
                     "javascript:" +
-                            "document.querySelector(\"p.comment-text.user-text\")" +
-                            ".insertAdjacentHTML(\"afterbegin\"," + // or \"beforebegin\"
-                            "'<img src=\"" + emoticonSrc + "\"/><br>');"
+                            "var list = document.querySelectorAll(\"p.comment-text.user-text\");" +
+                            "for(var i=0; i<list.length; i++) {" +
+                            "   var origin = list.item(i);" +
+                            "   origin.insertAdjacentHTML(\"afterbegin\"," + // or \"beforebegin\"
+                            "       '<img src=\"" + emoticonSrc + "\"/><br>');" +
+                            "}"
                 )
             }, delay
         )
